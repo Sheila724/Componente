@@ -1,65 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Tela de Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app" class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link" href="#" v-on:click.prevent="currentTab = 'login'" :class="{ 'active': currentTab === 'login' }">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" v-on:click.prevent="currentTab = 'signup'" :class="{ 'active': currentTab === 'signup' }">Criar conta</a>
-              </li>
-            </ul>
+  <div id="app" class="wrapper">
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slide" id="login" checked @click="slide('login')">
+        <input type="radio" name="slide" id="signup" @click="slide('signup')">
+        <label for="login" class="slide login">Login</label>
+        <label for="signup" class="slide signup">Cadastre-se</label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form action="#" class="login" ref="loginForm" @submit.prevent="loginFormSubmit">
+          <div class="field">
+            <input type="text" v-model="loginFormEmail" placeholder="Endereço de email" required>
           </div>
-          <div class="card-body">
-            <div v-show="currentTab === 'login'">
-              <h5 class="card-title">Login</h5>
-              <form @submit.prevent="login">
-                <div class="form-group">
-                  <label for="loginEmail">Email</label>
-                  <input type="email" class="form-control" id="loginEmail" v-model="loginEmail" required>
-                </div>
-                <div class="form-group">
-                  <label for="loginPassword">Senha</label>
-                  <input type="password" class="form-control" id="loginPassword" v-model="loginPassword" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
-              </form>
-            </div>
-            <div v-show="currentTab === 'signup'">
-              <h5 class="card-title">Criar conta</h5>
-              <form @submit.prevent="signup">
-                <div class="form-group">
-                  <label for="signupName">Nome</label>
-                  <input type="text" class="form-control" id="signupName" v-model="signupName" required>
-                </div>
-                <div class="form-group">
-                  <label for="signupEmail">Email</label>
-                  <input type="email" class="form-control" id="signupEmail" v-model="signupEmail" required>
-                </div>
-                <div class="form-group">
-                  <label for="signupPassword">Senha</label>
-                  <input type="password" class="form-control" id="signupPassword" v-model="signupPassword" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Criar conta</button>
-              </form>
-            </div>
+          <div class="field">
+            <input type="password" v-model="loginFormPassword" placeholder="Senha" required>
           </div>
-        </div>
+          <div class="pass-link"><a href="#">Esqueceu a senha?</a></div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Login">
+          </div>
+        </form>
+        <form action="#" class="signup" ref="signupForm" @submit.prevent="signupFormSubmit">
+          <div class="field">
+            <input type="text" v-model="signupFormName" placeholder="Nome" required>
+          </div>
+          <div class="field">
+            <input type="email" v-model="signupFormEmail" placeholder="Endereço de email" required>
+          </div>
+          <div class="field">
+            <input type="password" v-model="signupFormPassword" placeholder="Senha" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Confirme a Senha" required>
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Cadastrar">
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </body>
 </html>
+<<script src="index.js"></script>
