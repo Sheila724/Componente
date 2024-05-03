@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="app" class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link" href="#" v-on:click.prevent="currentTab = 'login'" :class="{ 'active': currentTab === 'login' }">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" v-on:click.prevent="currentTab = 'signup'" :class="{ 'active': currentTab === 'signup' }">Criar conta</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div v-show="currentTab === 'login'">
+              <h5 class="card-title">Login</h5>
+              <form @submit.prevent="login">
+                <div class="form-group">
+                  <label for="loginEmail">Email</label>
+                  <input type="email" class="form-control" id="loginEmail" v-model="loginEmail" required>
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Senha</label>
+                  <input type="password" class="form-control" id="loginPassword" v-model="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+              </form>
+            </div>
+            <div v-show="currentTab === 'signup'">
+              <h5 class="card-title">Criar conta</h5>
+              <form @submit.prevent="signup">
+                <div class="form-group">
+                  <label for="signupName">Nome</label>
+                  <input type="text" class="form-control" id="signupName" v-model="signupName" required>
+                </div>
+                <div class="form-group">
+                  <label for="signupEmail">Email</label>
+                  <input type="email" class="form-control" id="signupEmail" v-model="signupEmail" required>
+                </div>
+                <div class="form-group">
+                  <label for="signupPassword">Senha</label>
+                  <input type="password" class="form-control" id="signupPassword" v-model="signupPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Criar conta</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
