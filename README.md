@@ -32,4 +32,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para fazer um fork deste pr
 
 ## Autores
 
-- [Seu Nome](https://github.com/Sheila724) - Desenvolvedor
+- [Sheila Alves](https://github.com/Sheila724) - Desenvolvedor
